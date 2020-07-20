@@ -63,6 +63,7 @@ fn finalize_challenge(challenge_response: &[u8]) -> PyResult<Vec<u8>> {
                 let response = response_option.unwrap();
                 return Ok(response.to_vec());
             }
+            return Ok(Vec::new());
         }
     }
     Err(PyErr::new::<exceptions::PermissionError, _>("Connection from peer is not authorized."))
